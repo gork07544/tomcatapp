@@ -113,9 +113,9 @@ public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
 		//if(this.host == null || this.port == null || this.username == null || this.password == null || this.hibernate_driver_class == null || this.hibernate_dialect == null || this.url == null){
 			this.host = "127.0.0.1";
 			this.port = "3306";
-			this.username = "root";
-			this.password = "GeorgiAndonov82!";
-			this.url = String.format("jdbc:mysql://%s:%s/tvs", host, port);
+			this.username = "userRv6";//root";
+			this.password = "k7WDcGcE";//"GeorgiAndonov82!";
+			this.url = String.format("jdbc:mysql://%s:%s/root", host, port);
 			//this.url = String.format("jdbc:sqlserver://%s:%s;DatabaseName=ActionRA2Jmw7Ohg", host, port);
 			//this.hibernate_driver_class = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 			//this.hibernate_dialect = "org.hibernate.dialect.SQLServerDialect";
