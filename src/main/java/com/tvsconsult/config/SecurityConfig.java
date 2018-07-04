@@ -69,8 +69,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //         	 .antMatchers("/css/*").requiresInsecure()
 //         	.antMatchers("/welcome*").requiresInsecure()
 
-// 			.anyRequest().requiresSecure();
-        	.anyRequest().requiresInsecure()
+ 			.anyRequest().requiresSecure()
+//        	.anyRequest().requiresInsecure()
         	.and()
         .sessionManagement()
             .maximumSessions(1)
