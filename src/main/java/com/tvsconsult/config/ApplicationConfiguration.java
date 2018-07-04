@@ -44,6 +44,9 @@ import com.tvsconsult.model.Users;
 		"com.tvsconsult.config", "com.tvsconsult.services" })
 public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
 
+	
+	
+	
 	private String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
 	private String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
 	private String username = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
@@ -61,62 +64,8 @@ public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
 	/// 1.change to false and add database cartage to the build job gear
 	////2. change the configurations bellow
 	private boolean local = false;
-
-	private void setLocalEnvironmentVariables(){
-		//If local testing environment we need to reset the DB configurations
-		if(!local){
-		//if(this.host == null || this.port == null || this.username == null || this.password == null || this.hibernate_driver_class == null || this.hibernate_dialect == null || this.url == null){
-			this.host = "5736b1077628e1b6a600006e-tvsconsult.rhcloud.com";
-			this.port = "59351";
-			this.username = "adminD6raWQj";
-			this.password = "rMM8fzfzYiII";
-			this.url = String.format("jdbc:mysql://%s:%s/applications", host, port);
-			//this.url = String.format("jdbc:sqlserver://%s:%s;DatabaseName=ActionRA2Jmw7Ohg", host, port);
-			//this.hibernate_driver_class = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-			//this.hibernate_dialect = "org.hibernate.dialect.SQLServerDialect";
-		}
-		
-		/*else if(this.host == null || this.port == null || this.username == null || this.password == null || this.hibernate_driver_class == null || this.hibernate_dialect == null || this.url == null){
-			this.host = "localhost";
-			this.port = "3306";
-			this.username = "tvs_admin";
-			this.password = "123456";
-			this.url = String.format("jdbc:mysql://%s:%s/tvs_schemas", host, port);
-		}*/
-		this.host = "5736b1077628e1b6a600006e-tvsconsult.rhcloud.com";
-		this.port = "59351";
-		this.username = "adminD6raWQj";
-		this.password = "rMM8fzfzYiII";
-		this.url = String.format("jdbc:mysql://%s:%s/applications", host, port);
-	}
-
-	// ===============      Device detection Interseptor ==============
-	@Bean
-	public DeviceResolverHandlerInterceptor deviceResolverHandlerInterceptor() {
-	    return new DeviceResolverHandlerInterceptor();
-	}
-	@Override
-	public void addInterceptors(InterceptorRegistry registry) {
-	    registry.addInterceptor(deviceResolverHandlerInterceptor());
-	}
-	// ===== Pass the current Device as an argument to one of your @Controller methods, 
-	@Bean
-	public DeviceHandlerMethodArgumentResolver deviceHandlerMethodArgumentResolver() {
-	    return new DeviceHandlerMethodArgumentResolver();
-	}
-	@Override
-	public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
-	    argumentResolvers.add(deviceHandlerMethodArgumentResolver());
-	}
 	
-	// ========== Register static ResourceHandler ==============
-	@Override
-	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/csss/**").addResourceLocations("/resources/css/");
-		registry.addResourceHandler("/images/**").addResourceLocations("/resources/images/");
-		registry.addResourceHandler("/**").addResourceLocations("/resources/");
-	}
-
+	
 	// ========== Initialize jsp ViewResolver ==============
 	@Bean
 	public ViewResolver viewResolver() {
@@ -126,19 +75,60 @@ public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
 		viewResolver.setSuffix(".jsp");
 		return viewResolver;
 	}
-
-	// ========== DATASOURCE for MySQL ==============
-	@Bean(name = "dataSource")
-	public DataSource dataSource() {
-		setLocalEnvironmentVariables();
-		DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
-		driverManagerDataSource.setDriverClassName(hibernate_driver_class);
-		driverManagerDataSource.setUrl(url);
-		driverManagerDataSource.setUsername(username);
-		driverManagerDataSource.setPassword(password);
-		return driverManagerDataSource;
+	
+	// ===============      Device detection Interseptor ==============
+	@Bean
+	public DeviceResolverHandlerInterceptor deviceResolverHandlerInterceptor() {
+		return new DeviceResolverHandlerInterceptor();
 	}
 
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(deviceResolverHandlerInterceptor());
+	}
+
+	// ===== Pass the current Device as an argument to one of your @Controller
+	// methods,
+	@Bean
+	public DeviceHandlerMethodArgumentResolver deviceHandlerMethodArgumentResolver() {
+		return new DeviceHandlerMethodArgumentResolver();
+	}
+
+	@Override
+	public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
+		argumentResolvers.add(deviceHandlerMethodArgumentResolver());
+	}
+
+	// ========== Register static ResourceHandler ==============
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/csss/**").addResourceLocations("/resources/css/");
+		registry.addResourceHandler("/images/**").addResourceLocations("/resources/images/");
+		registry.addResourceHandler("/**").addResourceLocations("/resources/");
+	}
+	
+	private void setLocalEnvironmentVariables(){
+		//If local testing environment we need to reset the DB configurations
+		if(!local){
+		//if(this.host == null || this.port == null || this.username == null || this.password == null || this.hibernate_driver_class == null || this.hibernate_dialect == null || this.url == null){
+			this.host = "127.0.0.1";
+			this.port = "3306";
+			this.username = "root";
+			this.password = "GeorgiAndonov82!";
+			this.url = String.format("jdbc:mysql://%s:%s/tvs", host, port);
+			//this.url = String.format("jdbc:sqlserver://%s:%s;DatabaseName=ActionRA2Jmw7Ohg", host, port);
+			//this.hibernate_driver_class = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+			//this.hibernate_dialect = "org.hibernate.dialect.SQLServerDialect";
+		}
+		
+
+		this.host = "127.0.0.1";
+		this.port = "3306";
+		this.username = "root";
+		this.password = "GeorgiAndonov82!";
+		this.url = String.format("jdbc:mysql://%s:%s/tvs", host, port);
+	}
+	
 	// ========== Initialize Session Factory for Hibernate ==============
 	@Bean(name = "sessionFactory")
 	public SessionFactory sessionFactory() {
@@ -154,6 +144,7 @@ public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
 					.setProperty("hibernate.connection.url", url)
 					.setProperty("hibernate.connection.username", username)
 					.setProperty("hibernate.connection.password", password)
+					.setProperty("hibernate.id.new_generator_mappings","false")
 					.setProperty("hibernate.dialect", hibernate_dialect);
 			ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
 					.applySettings(configuration.getProperties()).build();
@@ -163,20 +154,21 @@ public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
 			throw new ExceptionInInitializerError(ex);
 		}
 	}
+	
 
-	// ========== Initialize MultipartResolver for FileUpload ==============
-	@Bean
-	public MultipartResolver multipartResolver() {
-		return new StandardServletMultipartResolver();
+	// ========== DATASOURCE for MySQL ==============
+	@Bean(name = "dataSource")
+	public DataSource dataSource() {
+		setLocalEnvironmentVariables();
+		DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
+		driverManagerDataSource.setDriverClassName(hibernate_driver_class);
+		driverManagerDataSource.setUrl(url);
+		driverManagerDataSource.setUsername(username);
+		driverManagerDataSource.setPassword(password);
+		return driverManagerDataSource;
 	}
-
-	// ========== Initialize AzureBlobStorageClient ==============
-	@Bean
-	public CloudBlobClient azureBlobStorage() throws InvalidKeyException, URISyntaxException {
-		// Retrieve storage account from connection-string.
-		CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
-		return storageAccount.createCloudBlobClient();
-	}
+	
+	
 
 	// ========== Initialize zohoSessionSMTP ==============
 	@Bean
@@ -200,4 +192,21 @@ public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
 		});
 		return session;
 	}
+	
+
+	// ========== Initialize MultipartResolver for FileUpload ==============
+	@Bean
+	public MultipartResolver multipartResolver() {
+		return new StandardServletMultipartResolver();
+	}
+
+
+	// ========== Initialize AzureBlobStorageClient ==============
+	@Bean
+	public CloudBlobClient azureBlobStorage() throws InvalidKeyException, URISyntaxException {
+		// Retrieve storage account from connection-string.
+		CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
+		return storageAccount.createCloudBlobClient();
+	}
+
 }
