@@ -122,7 +122,7 @@ public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
 		}
 		
 
-		this.host = "127.0.0.1";
+		this.host = "jws-app-mysql";//"127.0.0.1";
 		this.port = "3306";
 		this.username = "root";
 		this.password = "GeorgiAndonov82!";
