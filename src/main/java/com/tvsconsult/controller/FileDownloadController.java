@@ -25,6 +25,7 @@ import com.tvsconsult.services.AzureBlobStorage;
 @RequestMapping("/download")
 public class FileDownloadController {
 
+	/*
     @Autowired
     AzureBlobStorage abs;
 	
@@ -60,4 +61,6 @@ public class FileDownloadController {
 		instr.close();
 		
 	}
+	
+	*/
 }

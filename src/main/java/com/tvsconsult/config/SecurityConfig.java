@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+	/*
 	
 	@Autowired
 	private DataSource dataSource;
@@ -69,14 +70,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //         	 .antMatchers("/css/*").requiresInsecure()
 //         	.antMatchers("/welcome*").requiresInsecure()
 
- 			.anyRequest().requiresSecure()
-//        	.anyRequest().requiresInsecure()
+// 			.anyRequest().requiresSecure();
+        	.anyRequest().requiresInsecure()
         	.and()
         .sessionManagement()
             .maximumSessions(1)
             .expiredUrl("/login?expired");
     }
-    
+    */
 
 }
 

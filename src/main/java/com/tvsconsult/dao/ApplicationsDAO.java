@@ -17,6 +17,8 @@ import com.tvsconsult.model.Users;
 @Repository("ApplicationsDAO")
 public class ApplicationsDAO {
 
+	/*
+	
 	@Autowired
 	public SessionFactory sessionFactory;
 	
@@ -58,16 +60,7 @@ public class ApplicationsDAO {
 			tx = session.beginTransaction();
 			
 			app = (Applications)session.get(Applications.class, Id);
-			
-			/*Users user = userDAO.getUserByUserName(username);
-			Authorities aouth = null;
-			List<Authorities> authList = user.getAuthorities();
-			for (int i = 0; i < authList.size(); i++) {
-				if (user.getAuthorities().get(i).getAuthority().equals(authority)) {
-					aouth = user.getAuthorities().get(i);
-				}
-			}
-			*/
+
 			session.delete(app);
 			session.getTransaction().commit();
 		} catch (HibernateException e) {
@@ -98,16 +91,6 @@ public class ApplicationsDAO {
 			session = sessionFactory.openSession();
 			tx = session.beginTransaction();
 			
-			
-		/*	Users user = userDAO.getUserByUserName(username);
-			Authorities aouth = null;
-			List<Authorities> authList = user.getAuthorities();
-			for (int i = 0; i < authList.size(); i++) {
-				if (user.getAuthorities().get(i).getAuthority().equals(oldAuthority)) {
-					aouth = user.getAuthorities().get(i);
-					aouth.setAuthority(newAuthority);
-				}
-			}*/
 			session.saveOrUpdate(app);
 			session.getTransaction().commit();
 		} catch (HibernateException e) {
@@ -159,5 +142,5 @@ public class ApplicationsDAO {
 		}
 		return applications;
 	}
-	
+	*/
 }

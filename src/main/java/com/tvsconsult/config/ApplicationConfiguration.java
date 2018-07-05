@@ -44,9 +44,7 @@ import com.tvsconsult.model.Users;
 		"com.tvsconsult.config", "com.tvsconsult.services" })
 public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
 
-	
-	
-	
+
 	private String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
 	private String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
 	private String username = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
@@ -75,6 +73,8 @@ public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
 		viewResolver.setSuffix(".jsp");
 		return viewResolver;
 	}
+	
+	/*
 	
 	// ===============      Device detection Interseptor ==============
 	@Bean
@@ -208,5 +208,5 @@ public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
 		CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
 		return storageAccount.createCloudBlobClient();
 	}
-
+	*/
 }

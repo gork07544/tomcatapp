@@ -15,6 +15,7 @@ import com.tvsconsult.model.Users;
 @Repository("AuthoritiesDAO")
 public class AuthoritiesDAO {
 
+	/*
 	@Autowired
 	public SessionFactory sessionFactory;
 	
@@ -123,4 +124,6 @@ public class AuthoritiesDAO {
 		//System.out.println(res);
 		return authorities;
 	}
+	
+	*/
 }

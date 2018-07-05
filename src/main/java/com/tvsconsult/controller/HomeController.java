@@ -23,6 +23,8 @@ import com.tvsconsult.services.AzureBlobStorage;
 @Controller
 public class HomeController {
 
+	/*
+	
 	@Autowired
 	AzureBlobStorage abs;
 	
@@ -87,4 +89,7 @@ public class HomeController {
 		};
 		return new WebAsyncTask<ModelAndView>(1000, callable);
 	}
+	
+	
+	*/
 }

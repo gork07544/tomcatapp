@@ -14,6 +14,8 @@ import com.tvsconsult.model.Users;
 @Repository("UsersDAO")
 public class UsersDAO {
 
+	
+	/*
 	@Autowired
 	public SessionFactory sessionFactory;
 
@@ -186,4 +188,6 @@ public class UsersDAO {
 		}
 		return res;
 	}
+	*/
+	
 }

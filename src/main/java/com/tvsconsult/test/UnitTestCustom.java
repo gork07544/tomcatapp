@@ -33,6 +33,7 @@ import com.tvsconsult.model.Users;
 @FixMethodOrder(org.junit.runners.MethodSorters.NAME_ASCENDING)
 public class UnitTestCustom {
 
+	/*
 	@Autowired
 	private WebApplicationContext wac;
 
@@ -154,4 +155,6 @@ public class UnitTestCustom {
 		Company companyInserted = companyDAO.deleteCompanyReference(com.getCompanyId());
 		Assert.assertEquals(companyInserted.getCompanyId(), com.getCompanyId());
 	}
+	
+	*/
 }

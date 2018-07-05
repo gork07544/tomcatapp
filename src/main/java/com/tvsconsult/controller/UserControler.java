@@ -21,6 +21,7 @@ import com.tvsconsult.model.Users;
 @Controller
 public class UserControler {
 
+	/*
 	@Autowired
 	public UsersDAO usersDAO;
 
@@ -93,5 +94,5 @@ public class UserControler {
 		String str = "";
 		return new ModelAndView("createuser", "message", str);
 	}
-
+*/
 }

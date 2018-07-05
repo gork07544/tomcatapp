@@ -56,6 +56,8 @@ import static org.springframework.security.test.web.servlet.request.SecurityMock
 @FixMethodOrder(org.junit.runners.MethodSorters.NAME_ASCENDING)
 public class TVSTest {
 
+	/*
+	
 	@Autowired
 	private WebApplicationContext wac;
 
@@ -576,6 +578,6 @@ public class TVSTest {
 		}
 		
 		
-	
+	*/
 	
 }

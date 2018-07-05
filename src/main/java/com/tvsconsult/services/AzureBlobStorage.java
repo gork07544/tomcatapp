@@ -26,6 +26,7 @@ import com.microsoft.azure.storage.blob.ListBlobItem;
 @Service("AzureBlobStorage")
 public class AzureBlobStorage{
 
+	/*
 	@Autowired
 	public CloudBlobClient cloudBlobClient;
 		
@@ -129,5 +130,5 @@ public class AzureBlobStorage{
 		new File(appPath + "Directory1").mkdir();
 		return new AsyncResult<String>("Done");
 	}
-
+	*/
 }

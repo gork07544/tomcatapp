@@ -20,6 +20,7 @@ public class ZohoSMTP {
 	
 	private final String zohoUsername = "georgi@tvsconsult.com";
 	
+	/*
     @Autowired
     Session session;
     
@@ -41,4 +42,6 @@ public class ZohoSMTP {
 		System.out.println("Create MIME message done.");
 		Transport.send(message, InternetAddress.parse(recipientEmail, true));
 	}
+	
+	*/
 }
