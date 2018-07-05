@@ -64,7 +64,10 @@ public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
 	private boolean local = false;
 	
 	
-	// ========== Initialize jsp ViewResolver ==============
+
+	/*
+	
+		// ========== Initialize jsp ViewResolver ==============
 	@Bean
 	public ViewResolver viewResolver() {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
@@ -74,7 +77,7 @@ public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
 		return viewResolver;
 	}
 	
-	/*
+	
 	
 	// ===============      Device detection Interseptor ==============
 	@Bean
